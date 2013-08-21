@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -42,6 +43,18 @@ public class SMSAPI {
 		this.password = password;
 	}
 
+	public SMSAPI(String url) {
+		this.url = url;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public Float getCredit() {
 		return credit;
 	}
@@ -50,7 +63,24 @@ public class SMSAPI {
 		return lastError;
 	}
 	
+	public SMSSendInfo sendSMS(SMS smsobj) throws TextLimitExcedeed,
+			UnsupportedEncodingException, IOException, ParseException,
+			NoCreditException, UnauthorizedException {
+		return this.sendSMS(
+				smsobj.getRecipients(),
+				smsobj.getText()
+				);
+	}
+	
 	public SMSSendInfo sendSMS(String[] number, String text) throws TextLimitExcedeed,
+			UnsupportedEncodingException, IOException, ParseException,
+			NoCreditException, UnauthorizedException {
+		List<String> numbers = new ArrayList<String>();
+		numbers.addAll(Arrays.asList(number));
+		return this.sendSMS(numbers, text);
+	}
+	
+	public SMSSendInfo sendSMS(List<String> number, String text) throws TextLimitExcedeed,
 			UnsupportedEncodingException, IOException, ParseException,
 			NoCreditException, UnauthorizedException {
 		
