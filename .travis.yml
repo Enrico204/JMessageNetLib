@@ -1,0 +1,10 @@
+language: java
+script: ant jar
+deploy:
+  provider: releases
+  file: dist/JMessageNetLib.jar
+  skip_cleanup: true
+  api-key:
+    secure: DwHMj7KVU0BJbmFI41vWJo5bAfSit5SmSvZesCz4yqbiKBt4GzuozlUA63QqxRVvN8iPx0HH0g/WLxlEJ3tnXXn30eQIjs7H0vcEiCb2dTSR+yPpxqj3MdH1UG1mdPHmfnQZVeDKMRt2L0OI7AQu8vL8RurkEXxIVbV4WWIfMdWBpxYZNP1KWAurEFNXyIYhquXXbjUW038rvkzfoLucls0ms8g1D3zGpWQQbkddpp57ETLt2ncxQfWYNK4IQpHHovBXT761+rGPHY96Q+y+lrg8039o4EVNAm5ic7NNcmqMCZbhYou9SP24nI0tTx0UlsgtqhWxJILsFPSmJ3z+I5fMWe2QfYFvoxfVFyWVwdDmGNa61z3k+B/PKEgZ2jOJAkj8F+5qSos/Yc1OT7fjiXfUS2HBfnTVOlFgLheBUvroRjSrxv4UPn8mSpXCNZD0bnRTR5b3wIQJu+DAvZ72guSWMZ0Eh93RvJg8+N8LZhmzhvv+EpR/MAAx9GmLxHd6n1HFdlq/jEZdURRsdpO887KNajCfwsFWoZgKSP4pCpKAKkd5zlHjm74HUdGFDWVb72AsGlyXwPskQpwmv2zj61lLCXWvj3JWv4w+hF1JjO5+DhmCJSAwXgbBaFtyUpggicoLpxorUlpltbE3WPRHCDuhYfIJlJbzQGO609WI2kw=
+  on:
+    tags: true
