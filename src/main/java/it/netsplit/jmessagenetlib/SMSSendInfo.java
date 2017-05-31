@@ -1,12 +1,9 @@
 
-package it.enricobassetti.JMessageNetLib;
+package it.netsplit.jmessagenetlib;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
 import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;
 

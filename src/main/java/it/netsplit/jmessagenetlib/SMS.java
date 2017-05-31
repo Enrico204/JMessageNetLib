@@ -1,5 +1,5 @@
 
-package it.enricobassetti.JMessageNetLib;
+package it.netsplit.jmessagenetlib;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class SMS {
 	
-	private List<String> recipients = new ArrayList<String>();
+	private List<String> recipients = new ArrayList<>();
 	private String text = "";
 
 	public SMS() {

@@ -1,5 +1,5 @@
 
-package it.enricobassetti.JMessageNetLib;
+package it.netsplit.jmessagenetlib;
 
 import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;

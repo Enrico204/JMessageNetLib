@@ -1,5 +1,5 @@
 
-package it.enricobassetti.JMessageNetLib;
+package it.netsplit.jmessagenetlib;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -29,13 +29,13 @@ import org.json.simple.parser.ParseException;
  * @author enrico
  */
 public class SMSAPI {
-	private String url;
+	private final String url;
 	private String username;
 	private String password;
 	private Float credit = null;
 	private String lastError = null;
 	
-	private DateFormat df = new SimpleDateFormat("y-M-d'T'H:m:s");
+	private final DateFormat df = new SimpleDateFormat("y-M-d'T'H:m:s");
 
 	public SMSAPI(String url, String username, String password) {
 		this.url = url;
@@ -75,7 +75,7 @@ public class SMSAPI {
 	public SMSSendInfo sendSMS(String[] number, String text) throws TextLimitExcedeed,
 			UnsupportedEncodingException, IOException, ParseException,
 			NoCreditException, UnauthorizedException {
-		List<String> numbers = new ArrayList<String>();
+		List<String> numbers = new ArrayList<>();
 		numbers.addAll(Arrays.asList(number));
 		return this.sendSMS(numbers, text);
 	}
@@ -90,7 +90,7 @@ public class SMSAPI {
 		
 		HttpClient cl = new DefaultHttpClient();
 		HttpPost req = new HttpPost(url);
-		List<NameValuePair> reqParams = new ArrayList<NameValuePair>();
+		List<NameValuePair> reqParams = new ArrayList<>();
 		reqParams.add(new BasicNameValuePair("userid", this.username));
 		reqParams.add(new BasicNameValuePair("password", this.password));
 		reqParams.add(new BasicNameValuePair("method", "send_sms"));
@@ -135,7 +135,7 @@ public class SMSAPI {
 				}
 				
 				JSONArray arrObj = (JSONArray)obj.get("sent");
-				inf.sent = new HashMap<Integer, String>();
+				inf.sent = new HashMap<>();
 				for(Object o : arrObj) {
 					inf.sent.put(
 							Integer.parseInt(((JSONObject)o).get("message_id").toString()),
@@ -145,7 +145,7 @@ public class SMSAPI {
 				
 				arrObj = (JSONArray)obj.get("failed");
 				if(arrObj != null) {
-					inf.failed = new ArrayList<SMSSendFailedInfo>();
+					inf.failed = new ArrayList<>();
 					for(Object o : arrObj) {
 						inf.failed.add(new SMSSendFailedInfo(
 								((JSONObject)o).get("number").toString(),
